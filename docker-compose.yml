@@ -18,7 +18,7 @@ services:
     container_name: fullstack-db
     build: ./docker/mysql
     ports:
-      - 3306:3306
+      - 3307:3306
     volumes:
       - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
       - fullstack-db-volume:/var/lib/mysql
