@@ -14,4 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // WishList一覧画面を表示
-Route::get('/', 'App\Http\Controllers\WishListController@showList')->name('wishlist');
+Route::get('/', 'App\Http\Controllers\WishListController@showList')->name('wishlists');
+
+// WishList詳細画面を表示
+Route::get('/wishlist/{id}', 'App\Http\Controllers\WishListController@showDetail')->name('show');
