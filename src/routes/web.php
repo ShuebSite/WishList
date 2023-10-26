@@ -13,5 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ブログ一覧画面を表示
+// WishList一覧画面を表示
 Route::get('/', 'App\Http\Controllers\WishListController@showList')->name('wishlist');

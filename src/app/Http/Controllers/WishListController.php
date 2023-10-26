@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Wishlist;
 
 class WishListController extends Controller
 {
     /**
-     * ブログ一覧を表示する
+     * wishlist一覧を表示する
      * 
      *  @return view
     */
     public function showList()
     {
-        return view('wishList.list');
+        $wishlists = Wishlist::all();
+
+        // dd($wishlists);
+
+        return view('wishList.list', ['wishlists' => $wishlists]);
 
     }
 }
