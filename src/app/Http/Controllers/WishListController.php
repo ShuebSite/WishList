@@ -53,6 +53,26 @@ class WishListController extends Controller
         return view('wishList.form');
     }
 
+    /**
+     * wishlist編集を表示する
+     * 
+     *  @return view
+    */
+    public function showEdit($id)
+    {
+        $wishlist = Wishlist::find($id);
+
+        // dd($wishlist);
+
+        if (is_null($wishlist)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('wishlists'));
+        }
+
+        return view('wishList.edit', ['wishlist' => $wishlist]);
+
+    }
+
     // /**
     //  * wishlistを登録する
     //  * 

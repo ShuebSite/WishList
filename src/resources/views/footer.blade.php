@@ -1,3 +1,3 @@
 <div class="container text-center">
-    <span class="text-light">©︎oreのプログラミング</span>
+    <span class="text-light">©︎ポートフォリオ</span>
 </div>

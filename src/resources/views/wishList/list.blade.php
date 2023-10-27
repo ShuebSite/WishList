@@ -9,15 +9,17 @@
         @endif
         <table class="table table-striped">
             <tr>
-                <th>記事番号</th>
+                <th>番号</th>
                 <th>タイトル</th>
                 <th>日付</th>
+                <th></th>
             </tr>
             @foreach($wishlists as $wishlist)
             <tr>
                 <td>{{ $wishlist->id }}</td>
                 <td><a href="/wishlist/{{ $wishlist->id }}">{{ $wishlist->title }}</a></td>
                 <td>{{ $wishlist->updated_at }}</td>
+                <td><button type="button" class="btn-primary" onclick="location.href='/wishlist/edit/{{ $wishlist->id }}'">編集</button></td>
             </tr>
             @endforeach
         </table>

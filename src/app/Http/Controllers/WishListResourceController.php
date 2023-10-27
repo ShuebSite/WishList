@@ -65,10 +65,31 @@ class WishListResourceController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * wishlistを更新する
      */
     public function update(Request $request, string $id)
     {
-        //
+        dd($request->all());
+        // 入力データを受け取る
+        $inouts = $request->all();
+
+        \DB::beginTransaction();
+        try {
+            // WishListを更新
+            $wishlist = WishList::find($inputs['id']);
+            WishList::fill([
+                'title' => $inputs['title'],
+                'content' => $inputs['content'],
+            ]);
+            $wishlist->save();
+            \DB::commit();
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            abort(500);
+        }
+        
+        \Session::flash('err_msg', 'ブログを更新しました。');
+        return redirect(route('wishlists'));
     }
 
     /**

@@ -27,3 +27,5 @@ Route::get('/wishlist/create', 'App\Http\Controllers\WishListController@showCrea
 // WishList詳細画面を表示
 Route::get('/wishlist/{id}', 'App\Http\Controllers\WishListController@showDetail')->name('show');
 
+// WishList編集画面を表示
+Route::get('/wishlist/edit/{id}', 'App\Http\Controllers\WishListController@showEdit')->name('edit');
