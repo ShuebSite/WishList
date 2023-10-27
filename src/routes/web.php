@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WishListController;
+use App\Http\Controllers\WishListResourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +18,12 @@ use Illuminate\Support\Facades\Route;
 // WishList一覧画面を表示
 Route::get('/', 'App\Http\Controllers\WishListController@showList')->name('wishlists');
 
+// WishList登録
+Route::resource('/wishlist', WishListResourceController::class);
+
+// WishList登録画面を表示
+Route::get('/wishlist/create', 'App\Http\Controllers\WishListController@showCreate')->name('create');
+
 // WishList詳細画面を表示
 Route::get('/wishlist/{id}', 'App\Http\Controllers\WishListController@showDetail')->name('show');
+
