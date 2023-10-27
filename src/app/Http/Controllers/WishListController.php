@@ -32,7 +32,7 @@ class WishListController extends Controller
     {
         $wishlist = Wishlist::find($id);
 
-        dd($wishlist);
+        // dd($wishlist);
 
         if (is_null($wishlist)) {
             \Session::flash('err_msg', 'データがありません。');
@@ -84,7 +84,7 @@ class WishListController extends Controller
     //     $inouts = $request->all();
     //     // WishListを登録
     //     WishList::create($inputs);
-    //     \Session::flash('err_msg', 'ブログを登録しました。');
+    //     \Session::flash('err_msg', 'WISHLISTを登録しました。');
     //     return redirect(route('wishlists'));
     // }
 }

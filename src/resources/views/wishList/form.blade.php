@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>WishList投稿フォーム</h2>
-        <form mehod="POST" action="/wishlist" onSubmit="return checkSubmit()">
+        <form method="POST" action="/wishlist" onSubmit="return checkSubmit()">
         @csrf
             <div class="form-group">
                 <label for="title">

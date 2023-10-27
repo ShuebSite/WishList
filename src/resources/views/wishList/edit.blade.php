@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>WishList編集フォーム</h2>
-        <form mehod="POST" action="route('edit')" onSubmit="return checkSubmit()">
+        <form method="POST" action="{{ route('wishlist.update', $wishlist, $wishlist->id) }}" onSubmit="return checkSubmit()">
+        @method('PUT')
         @csrf
             <input type="hidden" name="id" value="{{ $wishlist->id }}">
             <div class="form-group">
