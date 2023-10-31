@@ -7,7 +7,9 @@
         <span>作成日：{{ $wishlist->created_at }}</span>
         <span>更新日：{{ $wishlist->updated_at }}</span>
         <p>{{ $wishlist->content }}</p>
-
+        <br>
+        <button type="button" align=”right” class="btn btn-primary"
+                onclick="location.href='/wishlist/{{ $wishlist->id }}/edit'">編集</button>
     </div>
 </div>
 @endsection

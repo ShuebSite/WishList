@@ -17,19 +17,7 @@ use App\Http\Controllers\WishListResourceController;
 */
 
 // WishList一覧画面を表示
-Route::get('/', [WishListController::class, 'showList'])->name('wishlists');
-
-// WishList登録、編集、削除
-// Route::resource('/wishlist', WishListResourceController::class);
-
-// WishList登録画面を表示
-Route::get('/wishlist/wishcreate', [WishListController::class, 'showCreate'])->name('create');
-
-// WishList詳細画面を表示
-Route::get('/wishlist/{id}', [WishListController::class, 'showDetail'])->name('show');
-
-// WishList編集画面を表示
-Route::get('/wishlist/edit/{id}', [WishListController::class, 'showEdit'])->name('edit');
+Route::get('/', [WishListResourceController::class, 'index'])->name('wishlists');
 
 // // WishList登録、編集、削除
 Route::resource('/wishlist', WishListResourceController::class);

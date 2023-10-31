@@ -9,20 +9,26 @@ use App\Http\Requests\WishListRequest;
 class WishListResourceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.]
+     * wishlist一覧を表示する
      */
     public function index()
     {
-        $a="a";
-        dd($a);
+        $wishlists = Wishlist::all();
+
+        // dd($wishlists);
+
+        return view('wishList.list', ['wishlists' => $wishlists]);
+
     }
 
     /**
      * Show the form for creating a new resource.
+     * wishlist登録を表示する
      */
     public function create()
     {
-        //
+        return view('wishList.form');
     }
 
     /**
@@ -47,24 +53,43 @@ class WishListResourceController extends Controller
         
         \Session::flash('err_msg', 'WishListを登録しました。');
         return redirect(route('wishlists'));
-        // return 'hello ri';
     }
 
     /**
      * Display the specified resource.
+     * wishlist詳細を表示する
      */
     public function show(string $id)
     {
-        //
+        $wishlist = Wishlist::find($id);
+
+        // dd($wishlist);
+
+        if (is_null($wishlist)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('wishlists'));
+        }
+
+        return view('wishList.detail', ['wishlist' => $wishlist]);
+
     }
 
     /**
      * Show the form for editing the specified resource.
-     * 
+     * wishlist編集を表示する
      */
     public function edit(string $id)
     {
-        //
+        $wishlist = Wishlist::find($id);
+
+        // dd($wishlist);
+
+        if (is_null($wishlist)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('wishlists'));
+        }
+
+        return view('wishList.edit', ['wishlist' => $wishlist]);
     }
 
     /**
@@ -94,7 +119,6 @@ class WishListResourceController extends Controller
         
         \Session::flash('err_msg', 'WishListを更新しました。');
         return redirect(route('wishlists'));
-        // return 'ori';
     }
 
     /**
@@ -119,6 +143,5 @@ class WishListResourceController extends Controller
 
         \Session::flash('err_msg', '削除しました。');
         return redirect(route('wishlists'));
-        // return 'ori';
     }
 }

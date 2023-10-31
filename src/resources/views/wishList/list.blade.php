@@ -20,7 +20,7 @@
                 <td>{{ $wishlist->id }}</td>
                 <td><a href="/wishlist/{{ $wishlist->id }}">{{ $wishlist->title }}</a></td>
                 <td>{{ $wishlist->updated_at }}</td>
-                <td><button type="button" class="btn btn-primary" onclick="location.href='/wishlist/edit/{{ $wishlist->id }}'">編集</button></td>
+                <td><button type="button" class="btn btn-primary" onclick="location.href='/wishlist/{{ $wishlist->id }}/edit'">編集</button></td>
                 <form method="POST" action="{{ route('wishlist.destroy', $wishlist->id) }}" onSubmit="return checkDelete()">
                 @method('DELETE')
                 @csrf

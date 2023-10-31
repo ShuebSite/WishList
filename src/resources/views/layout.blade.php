@@ -19,7 +19,7 @@
     </div>
 </div>
     </div>
-    <footer class="footer bg-dark  fixed-bottom">
+    <footer class="footer bg-info  fixed-bottom">
     @include('footer')
     </footer>
 </body>
