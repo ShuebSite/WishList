@@ -8,6 +8,7 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="{{ route('wishlists') }}">WishList一覧 <span class="sr-only"></span></a>
             <a class="nav-item nav-link" href="{{ route('wishlist.create') }}">WishList投稿</a>
+            <a class="nav-item nav-link" href="{{ route('wishlists_s3') }}">S3テスト</a>
         </div>
     </div>
 </nav>

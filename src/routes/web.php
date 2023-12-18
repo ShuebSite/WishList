@@ -19,5 +19,11 @@ use App\Http\Controllers\WishListResourceController;
 // WishList一覧画面を表示
 Route::get('/', [WishListResourceController::class, 'index'])->name('wishlists');
 
+// S3テスト画面を表示
+Route::get('/wishlist/s3', [WishListResourceController::class, 'index_S3'])->name('wishlists_s3');
+
+// S3 upload
+Route::post('/upload', [WishListResourceController::class, 'upload'])->name('upload');
+
 // // WishList登録、編集、削除
 Route::resource('/wishlist', WishListResourceController::class);
