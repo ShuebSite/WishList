@@ -18,7 +18,20 @@
             <p>
                 {{ $path }}
             </p>
+            <form method="POST" action="{{ route('delete') }}" onSubmit="return checkDelete()">
+                @method('DELETE')
+                @csrf
+                <td><button type="submit" class="btn btn-primary" onclick="location.href='/wishlist'">削除</button></td>
         @endif
     </div>
 </div>
+<script>
+function checkDelete() {
+    if (window.confirm('削除してよろしいですか？')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+</script>
 @endsection

@@ -25,5 +25,8 @@ Route::get('/wishlist/s3', [WishListResourceController::class, 'index_S3'])->nam
 // S3 upload
 Route::post('/upload', [WishListResourceController::class, 'upload'])->name('upload');
 
+// S3 delete
+Route::delete('/delete', [WishListResourceController::class, 'deleteS3Directory'])->name('delete');
+
 // // WishList登録、編集、削除
 Route::resource('/wishlist', WishListResourceController::class);

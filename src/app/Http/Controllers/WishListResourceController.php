@@ -109,6 +109,21 @@ class WishListResourceController extends Controller
         return;
     }
 
+    public function deleteS3Directory() {
+        $S3FileName = 'bucket/s3filename';
+
+        // $directories = Storage::disk('s3')->directories('bucket');
+        // dd($directories);
+
+        $s3_delete = Storage::disk('s3')->deleteDirectory($S3FileName);
+
+        \Session::flash('err_msg', '削除しました。');
+
+        return view('wishList.s3', [
+            'path' => null,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      * wishlist登録を表示する
