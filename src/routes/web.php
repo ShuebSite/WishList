@@ -30,3 +30,7 @@ Route::delete('/delete', [WishListResourceController::class, 'deleteS3Directory'
 
 // // WishList登録、編集、削除
 Route::resource('/wishlist', WishListResourceController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
