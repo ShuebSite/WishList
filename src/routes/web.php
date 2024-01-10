@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WishListController;
 use App\Http\Controllers\WishListResourceController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,8 @@ use App\Http\Controllers\WishListResourceController;
 |
 */
 
-// WishList一覧画面を表示
-Route::get('/', [WishListResourceController::class, 'index'])->name('wishlists');
+// ホーム（ログイン判別）画面を表示
+Route::get('/', [HomeController::class, 'index'])->name('wishlists');
 
 // S3テスト画面を表示
 Route::get('/wishlist/s3', [WishListResourceController::class, 'index_S3'])->name('wishlists_s3');
@@ -33,4 +34,4 @@ Route::resource('/wishlist', WishListResourceController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

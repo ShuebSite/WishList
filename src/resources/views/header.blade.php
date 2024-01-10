@@ -36,10 +36,10 @@
             </form>
             </ui>
             </li>
-            @endguest
             <a class="nav-item nav-link" href="{{ route('wishlists') }}">WishList一覧 </a>
             <a class="nav-item nav-link" href="{{ route('wishlist.create') }}">WishList投稿</a>
             <a class="nav-item nav-link" href="{{ route('wishlists_s3') }}">S3テスト</a>
+            @endguest
         </div>
     </div>
 </nav>
