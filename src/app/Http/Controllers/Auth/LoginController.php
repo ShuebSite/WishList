@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 use Ellaisys\Cognito\Auth\AuthenticatesUsers as CognitoAuthenticatesUsers;
 
@@ -71,4 +72,14 @@ class LoginController extends Controller
             } //End if
         } //End if       
     } //Function ends
+
+    /**
+     * Userをログアウトさせる
+     */
+    public function logout()
+    {      
+        Auth::guard('web')->logout(true);
+     
+        return redirect(route('login'));
+    }
 }

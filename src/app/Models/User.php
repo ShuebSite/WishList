@@ -16,6 +16,8 @@ class User extends Model implements AuthenticatableContract
 {
     use Authenticatable, HasApiTokens, HasFactory, Notifiable;
 
+    public $remember_token=false;
+
     /**
      * The attributes that are mass assignable.
      *
