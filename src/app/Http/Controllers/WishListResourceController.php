@@ -11,7 +11,18 @@ use Illuminate\Http\UploadedFile;
 class WishListResourceController extends Controller
 {
     /**
-     * Display a listing of the resource.]
+     * Create a new controller instance.
+     * ログインしていないときは画面へ遷移させない
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Display a listing of the resource.
      * wishlist一覧を表示する
      */
     public function index()
@@ -54,7 +65,7 @@ class WishListResourceController extends Controller
         }
         
         \Session::flash('err_msg', 'WishListを登録しました。');
-        return redirect(route('wishlists'));
+        return redirect(route('wishlist.index'));
     }
 
     /**
@@ -69,7 +80,7 @@ class WishListResourceController extends Controller
 
         if (is_null($wishlist)) {
             \Session::flash('err_msg', 'データがありません。');
-            return redirect(route('wishlists'));
+            return redirect(route('wishlist.index'));
         }
 
         return view('wishList.detail', ['wishlist' => $wishlist]);
@@ -88,7 +99,7 @@ class WishListResourceController extends Controller
 
         if (is_null($wishlist)) {
             \Session::flash('err_msg', 'データがありません。');
-            return redirect(route('wishlists'));
+            return redirect(route('wishlist.index'));
         }
 
         return view('wishList.edit', ['wishlist' => $wishlist]);
@@ -120,7 +131,7 @@ class WishListResourceController extends Controller
         }
         
         \Session::flash('err_msg', 'WishListを更新しました。');
-        return redirect(route('wishlists'));
+        return redirect(route('wishlist.index'));
     }
 
     /**
@@ -133,7 +144,7 @@ class WishListResourceController extends Controller
 
         if (empty($id)) {
             \Session::flash('err_msg', 'データがありません。');
-            return redirect(route('wishlists'));
+            return redirect(route('wishlist.index'));
         }
         try {
             // WishListを削除
@@ -144,6 +155,6 @@ class WishListResourceController extends Controller
         }
 
         \Session::flash('err_msg', '削除しました。');
-        return redirect(route('wishlists'));
+        return redirect(route('wishlist.index'));
     }
 }

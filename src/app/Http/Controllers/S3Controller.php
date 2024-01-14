@@ -10,6 +10,16 @@ use Illuminate\Http\UploadedFile;
 
 class S3Controller extends Controller
 {
+    /**
+     * Create a new controller instance.
+     * ログインしていないときは画面へ遷移させない
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    
     /**
      * Display a listing of the resource.]
