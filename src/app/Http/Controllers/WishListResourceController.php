@@ -18,7 +18,7 @@ class WishListResourceController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -31,7 +31,10 @@ class WishListResourceController extends Controller
 
         // dd($wishlists);
 
-        return view('wishList.list', ['wishlists' => $wishlists]);
+        //return view('wishList.list', ['wishlists' => $wishlists]);
+        return response() ->json([
+            'wishlists' => $wishlists
+        ]);
 
     }
 
@@ -65,7 +68,8 @@ class WishListResourceController extends Controller
         }
         
         \Session::flash('err_msg', 'WishListを登録しました。');
-        return redirect(route('wishlist.index'));
+        // return redirect(route('wishlist.index'));
+        return response() -> json($inputs, 200);
     }
 
     /**
@@ -83,7 +87,10 @@ class WishListResourceController extends Controller
             return redirect(route('wishlist.index'));
         }
 
-        return view('wishList.detail', ['wishlist' => $wishlist]);
+        return response() ->json([
+            'wishlist' => $wishlist
+        ]);
+        // return view('wishList.detail', ['wishlist' => $wishlist]);
 
     }
 
@@ -131,7 +138,8 @@ class WishListResourceController extends Controller
         }
         
         \Session::flash('err_msg', 'WishListを更新しました。');
-        return redirect(route('wishlist.index'));
+        // return redirect(route('wishlist.index'));
+        return response() -> json($inputs, 200);
     }
 
     /**
@@ -144,7 +152,8 @@ class WishListResourceController extends Controller
 
         if (empty($id)) {
             \Session::flash('err_msg', 'データがありません。');
-            return redirect(route('wishlist.index'));
+            return response() -> json(400);
+            // return redirect(route('wishlist.index'));
         }
         try {
             // WishListを削除
@@ -155,6 +164,7 @@ class WishListResourceController extends Controller
         }
 
         \Session::flash('err_msg', '削除しました。');
-        return redirect(route('wishlist.index'));
+        return response() -> json(200);
+        // return redirect(route('wishlist.index'));
     }
 }
