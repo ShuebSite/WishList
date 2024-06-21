@@ -18,10 +18,10 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
-    }
+    // public function boot(): void
+    // {
+    //     //
+    // }
 
     // 警告回避のためにHTTPS通信を強制する
     public function boot(UrlGenerator $url)
